@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  mflow_acc:
+    image: exat-mflow
+    build: .
+    container_name: exat-mflow
+    restart: always
+    ports:
+      - 8077:5000
+    networks:
+      - exat_toll
+    extra_hosts:
+      - "mongodb:172.20.1.166"
+ 
+networks:
+  exat_toll:
+     driver: bridge
